@@ -1,0 +1,7 @@
+.venv/
+*.json
+*.json.xz
+*.jpg
+*.csv
+*.txt
+*.png
