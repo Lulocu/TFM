@@ -1,0 +1,227 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{cprotect}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{tikz}
+\geometry{
+            a4paper,
+            total={170mm,257mm},
+            left=20mm,
+            top=20mm,
+    }
+
+\title{Dataset Instagram}
+\author{Luis López Cuerva}
+\date{Mayo 2023}
+ 
+ \usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[L]{\thedate}
+    \fancyhead[L]{Instagram}
+    \fancyhead[R]{\theauthor}
+}
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \@title \par}%
+    \vskip 1em%
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1em}
+\makeatother
+
+
+\begin{document}
+
+\maketitle
+
+\noindent\begin{tabular}{@{}ll}
+    Autor: & \theauthor\\
+\end{tabular}
+
+\section{Generación del dataset}
+El dataset se ha obtenido haciendo scrapping, es decir, automatizando la búsqueda de ciertos hashtags. Esta búsqueda se hace en el buscador de Instagram, por lo tanto las publicaciones recuperadas se ven afectadas por el algoritmo de recomendación de Instagram, es decir, generalmente recuperan las publicaciones más recientes, no es posible asegurar que se han recuperado todas las publicaciones realizadas en un periodo temporal, además las publicaciones con mayor tracción social son más probables de recuperar.
+
+Con la finalidad de reducir los sesgos introducidos por el algoritmo de recomendación de Instagram se ha creado una cuenta nueva y no se ha realizado ninguna búsqueda con esta antes de empezar el proceso de recuperación de publicaciones de Instagram.
+De cada publicación recuperada se ha almacenado la siguiente información: título de la publicación, nombre de perfil, fecha de publicación, pie de foto, ubicación indicada, cuentas etiquetadas, nº de comentarios, comentarios, nº de me gustas, hashtags utilizados, url de la publicación, imágenes de la publicación y si la publicación ha sido sponsorizada .
+De cada comentario se ha recuperado: perfil del comentario, fecha de publicación, texto del comentario y comentarios.
+\section{Publicaciones objetivo}
+Se han recuperado las publicaciones que contienen al menos uno de los siguientes hashtags: 'noalaborto', 'salvemoslasdosvidas', 'sialavida', 'mareaverde', 'quesealey', 'provida'.
+\section{Publicaciones recuperadas}
+Se han recuperado 4797 publicaciones, que tienen asociadas 17366 comentarios. Estas publicaciones son realizadas por 746 cuentas diferentes y aparecen 4069 hashtags diferentes, se mencionan 1173 cuentas diferentes.
+La publicación con más me gusta tiene 7675 me gusta, el post más comentado tiene 683 comentarios. Si combinamos el número de me gusta y el número de comentarios el post con más interacciones tiene 8095 interacciones. El número máximo de hashtags utilizados en una publicación son 38 y el número máximo de personas comentadas en una publicación son 24.
+
+De media cada publicación recibe 60.9 me gustas, 3.62 comentarios, 64.5 interacciones, utiliza 23.19 hashtags y menciona 0.24 usuarios. De media cada usuario que ha publicado una publicación con uno de los hastags usados lleva a cabo 23.19 publicaciones.
+
+\section{Fechas de las publicaciones}
+Las publicaciones recuperadas se publicaron entre el 16-06-2020 y el 30-05-2023. Sin embargo, debido a los algoritmos de recomendación de Instagram no se han recuperado todas las publicaciones entre estas fechas ni se han recuperado el mismo número de publicaciones por año. Concretamente se han recuperado 3447 publicaciones de 2023, 1346 de 2022, 3 de 2021 y 1 de 2020.
+Los 10 días con más publicaciones aparecen en \ref{tab:fechasPublicaciones}.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Fecha      & Nº publicaciones \\ \hline
+27-12-2022 & 394              \\ \hline
+28-12-2022 & 235              \\ \hline
+25-03-2023 & 90               \\ \hline
+24-12-2022 & 63               \\ \hline
+02-02-2023 & 62               \\ \hline
+29-12-2022 & 61               \\ \hline
+08-03-2023 & 47               \\ \hline
+08-02-2023 & 45               \\ \hline
+26-01-2023 & 45               \\ \hline
+26-12-2022 & 44               \\ \hline
+\end{tabular}
+\caption{Fechas con mayor número de publicaciones.}
+\label{tab:fechasPublicaciones}
+\end{table}
+
+El grueso de las publicaciones realizadas se concentra alrededor de el 28 de diciembre, "Día de los Santos Inocentes", si se tiene en cuenta el desfase horario entre los diferentes países de habla española se puede agrupar las publicaciones realizadas el día 27, 28 y 29. AL agrupar estos días se obtiene que se realizaron 690 publicaciones. Además de estos días destacan el día 25 de marzo, "Día de los Derechos del Niño por Nacer", el día 2 de febrero, "Día de la Candelaria" festividad que representa la purificación de la Virgen y la presentación del niño Dios en Jerusalén, el 8 de marzo, "Día de la mujer trabajadora", el 8 de febrero, "Día de San Jerónimo Emiliani, patrono de los niños huérfanos", 26 de enero, "Jornada de Infancia Misionera y el 26 de diciembre. De los 10 días con un mayor número de publicaciones 8 se relacionan con festividades o celebridades cristianas y uno con un día de reivindicación del movimiento feminista.
+
+\section{Perfiles preeminentes}
+
+Las 10 cuentas con un mayor número de publicaciones alcanzan un total de 2194 publicaciones, publicando de esta manera el 45.73\% de las publicaciones recuperadas. Las 10 cuentas con un mayor número de publicaciones y el número de publicaciones realizadas se presentan en la tabla \ref{tab:cuentasPublicaciones}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Nombre de cuenta         & Nº publicaciones \\ \hline
+providaforever           & 287              \\ \hline
+en.contra.del.aborto     & 286              \\ \hline
+provida.mundial          & 285              \\ \hline
+familiaprovida           & 284              \\ \hline
+catolica\_espiritualidad & 224              \\ \hline
+providas.chile           & 214              \\ \hline
+provida.chile            & 211              \\ \hline
+providafamiliar          & 147              \\ \hline
+zorroantiaborto          & 130              \\ \hline
+elobservadorperu         & 125              \\ \hline
+\end{tabular}
+\caption{Cuentas con mayor número de publicaciones.}
+\label{tab:cuentasPublicaciones}
+\end{table}
+
+Se puede apreciar que las cuentas con un mayor número de publicaciones son cuentas dedicadas especialmente a realizar publicaciones en contra del aborto. Además se puede observar una cuenta dedicada al catolicismo, cuyas festividades coinciden con un aumento de las publicaciones recuperadas. También destacan dos cuentas de nombre muy similar "providas.chile" y "provida.chile".
+
+En la tabla \ref{tab:menciones} se presentan las 10 cuentas que han sido etiquetadas más veces.
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Nombre de cuenta                   & Nº publicaciones en las que ha sido etiquetada \\ \hline
+pasionvidamin                      & 30                                      \\ \hline
+respectlifemiami                   & 27                                      \\ \hline
+gabrielboric                       & 16                                      \\ \hline
+radiopaz830am                      & 16                                      \\ \hline
+lavida\_no\_se\_debate\_sedefiende & 15                                      \\ \hline
+corazonesprovida                   & 15                                      \\ \hline
+abortonuncamais                    & 14                                      \\ \hline
+st.bonifacechurch                  & 14                                      \\ \hline
+salvemos.las2vidas                 & 13                                      \\ \hline
+americaprovida                     & 12                                      \\ \hline
+\end{tabular}
+\caption{Cuentas con mayor número de menciones.}
+\label{tab:menciones}
+\end{table}
+
+Ser observa que las cuentas más mencionadas no se corresponden con las cuentas que más publicaciones realizadas no se corresponden con las cuentas más etiquetadas.
+
+\section{Hashtags preeminentes}
+En la tabla \ref{tab:hashtags} se presentan los 10 hashtags más usados y el número de ves que se utilizaron.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Hashtag             & Nº veces utilizado \\ \hline
+noalaborto          & 5890               \\ \hline
+provida             & 2809               \\ \hline
+soyprovida          & 2151               \\ \hline
+providamundial      & 1990               \\ \hline
+follow              & 1968               \\ \hline
+noalabortosialavida & 1542               \\ \hline
+sialavida           & 1525               \\ \hline
+salvemoslas2vidas   & 1427               \\ \hline
+niunbebemenos       & 1317               \\ \hline
+quintanaroo         & 1315               \\ \hline
+\end{tabular}
+\caption{Hashtags más usados}
+\label{tab:hashtags}
+\end{table}
+Destaca que 8 de los hashtags más utilizados no pertenecen al conjunto de hashtags buscados. Además, existen dos hashtags relacionados en menor medida con el aborto. El primero es el hashtag follow, que tiene como finalidad ampliar el alcance de las publicaciones, el segundo es quintanaroo, que hace referencia al estado Quintana Roo de México.
+
+\section{Publicaciones preeminentes}
+
+A continuación se realiza un análisis de polaridad de las 5 publicaciones con más interacciones mediante la herramienta de procesamiento del lenguaje natural automática Meaning Cloud.
+
+\textbf{Publicación 1:} 8095 interacciones.
+\cprotect\begin{verbatim}
+Pie de foto: 'Me encantó este videito que te comparto ! Ojalá que ayude a tomar conciencia de lo que se está promoviendo desgraciadamente en varios lugares del mundo… Aquí te dejo este testimonio en primera persona. Cuidemos y protejamos la vida de todos ! Comparte este mensaje! Bendiciones! @padreadolfo\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n#vida #vidahumana #noalaborto #noalabortosialavida #down #downsyndrome #sindromededown'
+\end{verbatim}
+\textbf{Publicación 2:} 5576 interacciones.
+\cprotect\begin{verbatim}
+
+Pie de foto: 'De coherencia no se van a morir…\nTampoco de inteligencia.\n\nPero en fin, los leo\n\nCompártelo (y etiquétame para irte a comentar por tu lado también ��) \n\n.\n.\n.\n#LobbyPolitico #PorDetras\n#Lobby\n#NoAlAborto\n#ProVida\n#Trans\n\n#ConLosNiñosNo\n#Balenciaga \n#Trans\n#Transgenero\n#Biologia \n#LeyTrans \n#IreneMontero\n#Igualdad\n#EnLasCompetenciasFemeninasNo \n#LGTBQRSTUWXYZ \n#LGTBQ \n#Mujeres \n#Mujer\n#Amigues \n#Feministas \nEl #Patriarcado y la cosa ?\n#agenda2030 \n#NiConRojosNiConAzules \n#FueraElSocialismoDeVenezuela\n#Venezuela \n@LauraDeRosaMart \n#LauraDeRosaMart \n#LauraDeRosa #LDR'
+\end{verbatim}
+
+\textbf{Publicación 3:} 5536 interacciones.
+\cprotect\begin{verbatim}
+
+Pie de foto: '28 de diciembre: LOS SANTOS INOCENTES (mártires)\n\nLos niños Inocentes murieron por Cristo, fueron arrancados del pecho de su madre para ser asesinados: ahora siguen al Cordero sin mancha, cantando: «Gloria a ti, Señor.» (Antífona del Cántico Evangélico de Laudes)\n\nAyer Herodes, que arremetió contra los más pequeños por miedo a perder todo su poder y riqueza a manos de un rey que solo vino a reinar en los corazones. Hoy nuestros legisladores y hermanos de este suelo patrio y de todo el mundo que por miedo a perder su estado de bienestar votan leyes que inventan el derecho a terminar con la vida de los más pequeños e indefensos. Ellos ya gozan en la Gloria de Dios, nosotros roguemos que Él tenga misericordia de aquellas almas que perdieron el camino y han abogado a favor de esta causa y contribuyen directamente a estas muertes.\n\n#jesus #niñojesus #babyjesus #meninojesus #gesubambino\n#santosinocentes\n#holyinnocents\n#santosmartires\n#holymartyrs\n#martires #martyrs #noalaborto #sialavida #salvemoslas2vidas\n #iglesiacatolica #dibujo #drawing #ilustracion #illustration #arte #art #ilustraciondigital #digitalillustration #artedigital #digitalart #artereligioso #religiousart'
+\end{verbatim}
+
+\textbf{Publicación 4:} 4270 interacciones.
+\cprotect\begin{verbatim}
+
+Pie de foto: '"Madre de los niños que no han nacido, ruega por nosotros".\n.\n Señor Jesús: por mediación de María, Tu Madre, que te dio a luz con amor, y por intercesión de San José, quien contempló extasiado el Misterio de la Encarnación y se ocupó de Ti tras tu nacimiento, te pido por este pequeño no nacido y que se encuentra en peligro de ser abortado. Te pido que des a los padres de este bebé amor y valor para que le permitan vivir la vida que Tú mismo le has preparado. Amén.\n.\n Bendito seas, Señor, por este nuevo día. Te alabo por el don de la vida. Al despertar del sueño, te pido especialmente por aquellos que serán trágicamente privados de la vida porque serán abortados. Recíbelos, Señor. Y en tu gran misericordia, guía con tu sabiduría a todas las mujeres embarazas que estén pensando hoy en destruir a los niños que llevan en su seno. Dales la gracia, el valor y la fortaleza para vivir diariamente según tu voluntad. Te lo pido por Cristo, Nuestro Señor, Amén.\n.\n#rezarhoy #jovenescatolicos #santosinocentes #noalaborto #sialavida #amordeDios #vivirlafe #oracion #testimonios #reflexiones #amistadconjesucristo #fe #alegria #cristianos #givenfaith'
+\end{verbatim}
+
+
+\textbf{Publicación 5:} 3057 interacciones.
+\cprotect\begin{verbatim}
+
+Pie de foto: 'Mensaje de la Santísima Virgen María ��\n\n(Vidente de la Virgen María)\nRezo por todos los seres del mundo. En el cuarto misterio del Santo Rosario la veo, está sola. El último Gloria lo reza conmigo.\nEstá muy triste, tiene las manos juntas y cuando reza el Gloria inclina como siempre su cabeza.\nDespués que termino de rezar me habla. Me dice:\n\n“Gladys, ora también por las criaturas que no nacen, que no alcanzan a ver la luz del día.\n¡Son tantos los abortos, son tantos los atentados a las vidas que sólo a Dios pertenecen!\nDios tiene la vida y Dios llama a la vida, sólo Dios.\nBendito sea el Señor”.\n\nAmén ����\n\n~~\nMensaje de la Santísima Virgen María del Rosario de San Nicolás. Argentina 7/3/87 Msje. # 1119\n✨El 25/09/83 fue la primera aparición de nuestra Santísima Virgen María a la vidente Gladys Motta. \n��Te amamos, honramos, veneramos y te agradecemos Santísima Virgen María! Ruega por nosotros������❤️\n✝️Jesús en ti confío. Que se haga tu Divina Voluntad y no la mía.\nSea bendito el Señor y todo sea para su Gloria y Honor!����\n\n~~\n#virgenmaria#virginmary#dios \n#diosesvida#vida#life#juventud \n#juventude#abrirlosojos#deus \n#openyoureyes#youth#juventude \n#mandamientos#cristo#prayforlife \n#bastadematar#piedad#mercy \n#sialavida#misericordia#stopkilling \n#noalaborto #nomatarás#jesucristo✝ \n#pecadomortal#jovenescatolicos \n#diosesamor#diosesvida#amar'
+\end{verbatim}
+
+En la tabla \ref{tab:MC} se muestran los resultados del análisis para cada publicación.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Publicación & Etiqueta                                                                           & Relevancia en la publicación & Polaridad \\ \hline
+1           & Hobbies \& Interests\textgreater{}Content Production\textgreater{}Video Production & 100                          & P+        \\ \hline
+2           & Science\textgreater{}Biological Sciences                                           & 100                          & P         \\ \hline
+3           & Family and Relationships                                                           & 100                          & NEU       \\ \hline
+            & Fine Art                                                                           & 100                          & NONE      \\ \hline
+            & News and Politics\textgreater{}Crime                                               & 100                          & NEU       \\ \hline
+            & News and Politics\textgreater{}Politics                                            & 100                          & NONE      \\ \hline
+            & Religion \& Spirituality\textgreater{}Christianity                                 & 100                          & P         \\ \hline
+            & Business and Finance\textgreater{}Industries\textgreater{}Advertising Industry     & 100                          & NONE      \\ \hline
+4           & Family and Relationships\textgreater{}Parenting                                    & 100                          & P         \\ \hline
+            & Religion \& Spirituality\textgreater{}Christianity                                 & 50                           & NEU       \\ \hline
+5           & Religion \& Spirituality                                                           & 100                          & P         \\ \hline
+\end{tabular}
+\caption{Resultados análisis Meaning Cloud}
+\label{tab:MC}
+\end{table}
+
+Es importante destacar que el modelo utilizado es un modelo general de procesamiento del lenguaje natural. No es un modelo especializado para redes sociales ni para la detección de temas concretos, no obstante se aprecia como si detecta la relación de las publicaciones con el cristianismo.
+
+\end{document}
+
