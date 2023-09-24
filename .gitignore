@@ -3,8 +3,10 @@
 *.json.xz
 *.jpg
 *.csv
-*.txt
 *.png
 CorpusDefinitivo/
 DatasetFinal/
 *.zip
+PrepareDataset.ipynb
+.vscode/
+Pruebas/
